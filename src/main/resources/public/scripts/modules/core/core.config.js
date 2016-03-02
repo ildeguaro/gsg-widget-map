@@ -7,16 +7,15 @@
     'use strict';
 
     var core = angular.module('app.core',[]);
-    
-    core.config(toastrConfig);
-
     /**
-     * Configuraciones del módulo NO-Angular "toastr".
-     * Inyecta toastr el cual fue definido en core.constants.js
+     * Configuraciones para notificaciones, logger y exception.
      */
-    toastrConfig.$inject = ['toastr'];
+    core.config(notifConfig);
     
-    function toastrConfig(toastr) {
+    notifConfig.$inject = ['$logProvider', 'exceptionHandlerProvider', 'toastr', 'CONFIG'];
+    
+    function notifConfig($logProvider, exceptionHandlerProvider, toastr, CONFIG) {
+        // Configuraciones del módulo NO-Angular "toastr".
     	toastr.options.closeButton = true;
     	toastr.options.newestOnTop = true;
     	toastr.options.progressBar = true;
@@ -31,9 +30,121 @@
     	toastr.options.hideEasing = 'linear';
     	toastr.options.showMethod = 'fadeIn';
     	toastr.options.hideMethod = 'fadeOut';
+    	
+    	// Configuración del proveedor de logs.
+        if ($logProvider.debugEnabled) {
+            $logProvider.debugEnabled(CONFIG.logDebugEnabled);
+        }
+        
+        // Configuración del gestor de excepciones definido.
+        exceptionHandlerProvider.configure(CONFIG.appErrorPrefix);
     }
-
-    // Demas configuraciones globales
+    
+    /**
+     * Configuraciones para storage.
+     */
+    core.config(storageConfig);
+    
+    storageConfig.$inject = ['localStorageServiceProvider'];
+    
+    function storageConfig(localStorageServiceProvider) {
+        // Configuración del Local Storage.
+        localStorageServiceProvider
+        	.setPrefix('gapp');
+    }
+    
+    /**
+     * Configuraciones del módulo Dashboard de ADF.
+     */
+    core.config(dashboardConfig);
+    
+    dashboardConfig.$inject = ['dashboardProvider'];
+    
+    function dashboardConfig(dashboardProvider) {
+        // Definir la ruta base de los widgets.
+        dashboardProvider.widgetsPath('scripts/modules/widgets/adf/');
+        // Definir las estructuras del layout para el dashboard.
+        dashboardProvider.structure('6-6', {
+			rows : [ {
+				columns : [ {
+					styleClass : 'col-md-6'
+				}, {
+					styleClass : 'col-md-6'
+				} ]
+			} ]
+		}).structure('4-8', {
+			rows : [ {
+				columns : [ {
+					styleClass : 'col-md-4',
+					widgets : []
+				}, {
+					styleClass : 'col-md-8',
+					widgets : []
+				} ]
+			} ]
+		}).structure('12/4-4-4', {
+			rows : [ {
+				columns : [ {
+					styleClass : 'col-md-12'
+				} ]
+			}, {
+				columns : [ {
+					styleClass : 'col-md-4'
+				}, {
+					styleClass : 'col-md-4'
+				}, {
+					styleClass : 'col-md-4'
+				} ]
+			} ]
+		}).structure('12/6-6', {
+			rows : [ {
+				columns : [ {
+					styleClass : 'col-md-12'
+				} ]
+			}, {
+				columns : [ {
+					styleClass : 'col-md-6'
+				}, {
+					styleClass : 'col-md-6'
+				} ]
+			} ]
+		}).structure('12/6-6/12', {
+			rows : [ {
+				columns : [ {
+					styleClass : 'col-md-12'
+				} ]
+			}, {
+				columns : [ {
+					styleClass : 'col-md-6'
+				}, {
+					styleClass : 'col-md-6'
+				} ]
+			}, {
+				columns : [ {
+					styleClass : 'col-md-12'
+				} ]
+			} ]
+		}).structure('3-9 (12/6-6)', {
+			rows : [ {
+				columns : [ {
+					styleClass : 'col-md-3'
+				}, {
+					styleClass : 'col-md-9',
+					rows : [ {
+						columns : [ {
+							styleClass : 'col-md-12'
+						} ]
+					}, {
+						columns : [ {
+							styleClass : 'col-md-6'
+						}, {
+							styleClass : 'col-md-6'
+						} ]
+					} ]
+				} ]
+			} ]
+		});   	
+    }
     
     /**
      * Configuraciones para comunicaciones.
@@ -51,6 +162,18 @@
         // Configuración de ruta por defecto.
         $urlRouterProvider.otherwise('/');
         
+    }
+    
+    /**
+     * Application Run.
+     */
+    core.run(appRun);
+    
+    appRun.$inject = ['$rootScope', 'CONFIG'];
+    
+    function appRun($rootScope, CONFIG) {
+    	// Estabelcer CONFIG a nivel de rootScope para que pueda ser accedido desde HTML.
+        $rootScope.CONFIG = CONFIG;
     }
     
 
