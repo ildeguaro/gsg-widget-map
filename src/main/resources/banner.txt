@@ -1,0 +1,9 @@
+
+  ${AnsiColor.GREEN}   ___________ ______ ${AnsiColor.RED}  ______          __  
+  ${AnsiColor.GREEN}  / ____/ ___// ____/ ${AnsiColor.RED} /_  __/__  _____/ /_ 
+  ${AnsiColor.GREEN} / / __ \__ \/ / __   ${AnsiColor.RED}  / / / _ \/ ___/ __ \
+  ${AnsiColor.GREEN}/ /_/ /___/ / /_/ /   ${AnsiColor.RED} / / /  __/ /__/ / / /
+  ${AnsiColor.GREEN}\____//____/\____/    ${AnsiColor.RED}/_/  \___/\___/_/ /_/   ${AnsiColor.BRIGHT_BLUE}${application.formatted-version}
+
+:: Running Spring Boot: ${spring-boot.formatted-version} ::
+:: http://www.gsgtech.com ::${AnsiColor.DEFAULT}

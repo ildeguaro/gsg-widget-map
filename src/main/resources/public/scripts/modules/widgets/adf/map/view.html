@@ -1,0 +1,6 @@
+<div class=text-center>
+  <div class='alert alert-info' ng-if=!config>Please insert a location in the widget configuration</div>
+</div>
+<openlayers ol-center='{{vm.config.center}}' width='100%' > 
+  <ol-marker ol-marker-properties='{{vm.config.markerdefault}}'>
+</openlayers>

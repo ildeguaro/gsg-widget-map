@@ -1,0 +1,31 @@
+{  
+	"name": "gsg-widget-map",
+	"version": "0.0.0",
+	"authors": [
+		"Ildemaro Medina <imedina@gsgtech.com>"
+	],
+	"description": "Widget Map para GSGTech",
+	"appPath": "src/main/resources/public",
+	"testPath": "src/test/javascript/spec",
+	"private": true,
+	"dependencies": {  
+		"fontawesome": "~4.5.0",
+		"angular": "~1.4.9",
+		"angular-bootstrap": "~1.2.1",
+		"angular-ui-router": "~0.2.18",		
+		"angular-local-storage": "~0.2.3",
+		"angular-dashboard-framework": "~0.11.0",
+		"bootstrap": "~3.3.6",
+		"jquery": "~2.2.0",
+		"jquery-ui": "~1.11.4",
+		"toastr": "~2.1.2"
+		
+	},
+	"devDependencies": {
+		
+    },
+    "resolutions": {
+        "angular": "~1.4.9",
+		"angular-bootstrap": "~1.2.1"
+    }
+}

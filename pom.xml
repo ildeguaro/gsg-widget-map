@@ -1,0 +1,151 @@
+<project xmlns="http://maven.apache.org/POM/4.0.0" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+	xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/xsd/maven-4.0.0.xsd">
+	<modelVersion>4.0.0</modelVersion>
+	<artifactId>gsg-widget-map</artifactId>	
+	<groupId>com.gsgtech.widgets</groupId>
+    <version>1.0.0-SNAPSHOT</version>
+	<name>Un Widget Map to GSG Tech</name>
+    <description>Un Widget Map to GSG Tech</description>
+	
+	
+	<build>
+		<finalName>${project.artifactId}</finalName>
+		
+		<plugins>			
+			<plugin>
+				<groupId>org.apache.maven.plugins</groupId>
+				<artifactId>maven-clean-plugin</artifactId>
+				<configuration>
+					<filesets>
+						<fileset>
+							<directory>node</directory>
+							<includes>
+								<include>**/*</include>
+							</includes>
+							<followSymlinks>false</followSymlinks>
+						</fileset>
+						<fileset>
+							<directory>node_modules</directory>
+							<includes>
+								<include>**/*</include>
+							</includes>
+							<followSymlinks>false</followSymlinks>
+						</fileset>
+						<fileset>
+							<directory>src/main/resources/public/lib</directory>
+							<includes>
+								<include>**/*</include>
+							</includes>
+							<followSymlinks>false</followSymlinks>
+						</fileset>
+						<fileset>
+							<directory>src/main/resources/dist</directory>
+							<includes>
+								<include>**/*</include>
+							</includes>
+							<followSymlinks>false</followSymlinks>
+						</fileset>
+						<fileset>
+							<directory>.tmp</directory>
+						</fileset>
+						<fileset>
+							<directory>.bower_cache</directory>
+						</fileset>
+					</filesets>
+				</configuration>
+			</plugin>
+		</plugins>
+	</build>
+	
+	
+    <profiles>
+        <profile>
+            <id>dev</id>
+            <activation>
+                <activeByDefault>false</activeByDefault>
+            </activation>
+            <dependencies>
+                <dependency>
+                    <groupId>org.springframework.boot</groupId>
+                    <artifactId>spring-boot-devtools</artifactId>
+                    <optional>true</optional>
+                </dependency>
+            </dependencies>
+        </profile>
+        <profile>
+            <id>prod</id>
+            <activation>
+                <activeByDefault>true</activeByDefault>
+            </activation>
+            <build>
+                <plugins>
+					<plugin>
+						<groupId>com.github.eirslett</groupId>
+						<artifactId>frontend-maven-plugin</artifactId>
+						<executions>
+							<!-- Descarga e Instala Node y NPM localmente para el proyecto (Carpeta: ./node)-->
+							<execution>
+								<id>install-node-npm</id>
+								<goals>
+									<goal>install-node-and-npm</goal>
+								</goals>
+								<configuration>
+									<nodeVersion>v4.3.1</nodeVersion>
+									<npmVersion>2.14.12</npmVersion>
+								</configuration>
+							</execution>
+							<!-- 
+							Instalar o actualizar todos los paquetes NPM definidos en package.json en carpeta ./node_modules (ejecuta: $ npm install).
+							Descarga las versiones desde https://nodejs.org/dist. 
+							-->
+							<execution>
+								<id>npm-install-modules</id>
+								<goals>
+									<goal>npm</goal>
+								</goals>
+								<configuration>
+									<arguments>install</arguments>
+								</configuration>
+							</execution>
+							<!-- Instalar o actualizar los paquetes bower definidos en bower.json (ejecuta: $ bower install) -->
+							<execution>
+								<id>bower-install</id>
+								<goals>
+									<goal>bower</goal>
+								</goals>
+								<configuration>
+									<arguments>install</arguments>
+								</configuration>
+							</execution>
+							<!-- Prepara el paquete de la distribución a través de grunt (ejecuta: $ grunt build) -->
+							<execution>
+								<id>grunt-build</id>
+								<goals>
+									<goal>grunt</goal>
+								</goals>
+								<configuration>
+									<arguments>build --no-color</arguments>
+								</configuration>
+							</execution>
+							<!-- Ejecuta test con Karma. Para ignorar: -DskipTests -->
+							<!--  
+							<execution>
+								<id>javascript tests</id>
+								<goals>
+									<goal>karma</goal>
+								</goals>
+								<phase>test</phase>
+								<configuration>
+									<karmaConfPath>src/test/javascript/karma.conf.js</karmaConfPath>
+								</configuration>
+							</execution>
+							-->
+						</executions>
+					</plugin>                    
+                </plugins>
+            </build>
+        </profile>
+    </profiles>
+	
+   
+</project>

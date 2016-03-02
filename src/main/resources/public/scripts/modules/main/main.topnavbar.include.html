@@ -1,0 +1,87 @@
+<div class="row border-bottom">
+	<nav class="navbar navbar-fixed-top" role="navigation">
+		<div class="navbar-header">
+            <a href="/" class="navbar-brand">
+            	<span><img src="assets/images/gsg-logo-header2.png" width="54" height="53">&nbsp;GApp&nbsp;<span class="navbar-version">v{{CONFIG.version}}</span></span>
+            </a>
+			<span gsg-min-sidebar></span>
+		</div>
+        <div class="navbar-collapse collapse" id="navbar-main">
+            <ul class="nav navbar-nav">
+                <li class="dropdown" uib-dropdown>
+                    <a class="dropdown-toggle" href uib-dropdown-toggle>Services<span class="caret"></span></a>
+                    <ul role="menu" class="dropdown-menu">
+                        <li><a href="#">Menu item</a></li>
+                        <li><a href="#">Menu item</a></li>
+                        <li><a href="#">Menu item</a></li>
+                        <li><a href="#">Menu item</a></li>
+                    </ul>
+                </li>
+                <li class="dropdown" uib-dropdown>
+                    <a class="dropdown-toggle" href uib-dropdown-toggle>Administration<span class="caret"></span></a>
+                    <ul role="menu" class="dropdown-menu">
+                        <li><a href="#">Menu item</a></li>
+                        <li><a href="#">Menu item</a></li>
+                        <li><a href="#">Menu item</a></li>
+                        <li><a href="#">Menu item</a></li>
+                    </ul>
+                </li>
+            </ul>
+			<ul class="nav navbar-top-links navbar-right">
+				<li ui-sref-active="active">
+					<a ui-sref="task" href="">
+						<i class="fa fa-tasks"></i>Tasks<span class="badge badge-danger">3</span>
+					</a>
+				</li>
+	            <li uib-dropdown class="dropdown">
+	                <a uib-dropdown-toggle class="dropdown-toggle" href="">
+						<i class="fa fa-globe"></i>English
+						<span class="caret"></span>
+	                </a>
+	                <ul uib-dropdown-menu class="dropdown-menu" role="menu">
+	                    <li role="menuitem">
+	                    	<a href="#">
+	                    		<i class="fa fa-flag"></i>
+	                    		<span>&nbsp;English</span>
+	                    	</a>
+	                    </li>
+	                    <li role="menuitem">
+	                    	<a href="#">
+	                    		<i class="fa fa-flag"></i>
+	                    		<span>&nbsp;Spanish</span>
+	                    	</a>
+	                    </li>
+	                </ul>
+	            </li>
+			    <li uib-dropdown class="dropdown">
+					<a uib-dropdown-toggle class="dropdown-toggle" href="">
+						<i class="fa fa-user"></i>Jorger Guerrero
+						<span class="caret"></span>
+					</a>
+					<ul uib-dropdown-menu class="dropdown-menu" role="menu">
+						<li role="menuitem">
+							<a href="#">
+								<i class="fa fa-user"></i>
+								<span>&nbsp;My Account</span>
+							</a>
+						</li>
+						<li role="menuitem">
+							<a href="#">
+								<i class="fa fa-lock"></i>
+								<span>&nbsp;Change Password</span>
+							</a>
+						</li>
+						<li class="divider"></li>
+						<li role="menuitem">
+							<a href="#">
+								<i class="fa fa-sign-out"></i>
+								<span>&nbsp;Log out</span>
+							</a>
+						</li>
+					</ul>
+				</li>
+			</ul>
+        </div>		
+		
+	</nav>
+</div>

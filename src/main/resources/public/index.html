@@ -1,0 +1,112 @@
+<!DOCTYPE html>
+<html class="no-js" ng-app="app" ng-strict-di>
+
+<head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+	<meta name="description" content="Services Portal">
+	<meta name="author" content="GSG Tech">
+	<!-- Meta-etiquetas para Google -->
+	<meta name="google" content="notranslate">
+	
+    <title ng-bind="pageTitle"></title>
+    
+    <link rel="shortcut icon" href="favicon.ico" type="image/x-icon" />
+    <link rel="apple-touch-icon" href="apple-touch-icon.png" />
+
+    <!-- build:css assets/styles/vendor.css -->
+    <!-- bower:css -->
+    <link href="lib/bootstrap/dist/css/bootstrap.css" rel="stylesheet">
+        <!-- .......... otras dependencias css de terceros ........ -->
+    <!-- endbower -->
+    <!-- endbuild -->
+
+    <!-- build:css({.tmp,src/main/resources/public}) assets/styles/app.css -->
+    <link href="assets/styles/main.css" rel="stylesheet">
+    <!-- endbuild -->
+
+</head>
+
+<body ng-controller="DashboardController as vm" class="skin-1 fixed-nav fixed-sidebar">
+	<!--[if lt IE 9]>
+    	<p class="browserupgrade">You are using an <strong>outdated</strong> browser. Please <a href="http://browsehappy.com/">upgrade your browser</a> to improve your experience.</p>
+	<![endif]-->
+			
+	<div class="container">
+
+      <ng-view />
+
+    </div>
+	
+	
+	
+
+	<!-- Google Analytics: descomentar y cambiar UA-XXXXX-X por el correcto ID del sitio.
+	<script>
+		(function(b,o,i,l,e,r){b.GoogleAnalyticsObject=l;b[l]||(b[l]=
+		function(){(b[l].q=b[l].q||[]).push(arguments)});b[l].l=+new Date;
+		e=o.createElement(i);r=o.getElementsByTagName(i)[0];
+		e.src='//www.google-analytics.com/analytics.js';
+		r.parentNode.insertBefore(e,r)}(window,document,'script','ga'));
+		ga('create','UA-XXXXX-X');ga('send','pageview');
+	</script>
+	-->
+	
+	<!-- build:js scripts/vendor.js -->
+	<!-- bower:js -->
+	<!-- jQuery -->
+	<script src="lib/jquery/dist/jquery.js"></script>
+	<!-- .......... otras dependencias javascript de terceros ........ -->
+	<!-- endbower -->
+	<!-- endbuild -->
+	
+	<!--
+	 Se necesita incluir este script en cualquier página que desee acceder a Google Map.
+	 Se debe generar el API key de desarrollo desde: https://developers.google.com/maps/documentation/javascript/tutorial#api_key
+	 Luego sustituir el key en el URL de abajo.
+	-->
+	<!--  
+	<script async defer	src="https://maps.googleapis.com/maps/api/js?key=AIzaSyDQTpXj82d8UpCi97wzo_nKXL7nYrd4G70"></script>
+	-->
+	
+	<!-- build:js({.tmp,src/main/resources/public}) scripts/app.js -->
+	
+	<!-- !NO EDITE ESTE BLOQUE! auto-generado por includeSource, ver: Gruntfile.js -->
+	<!-- include: "type": "js", "files": "<%= gapp.scripts %>" -->
+	
+	
+	<script src="lib/angular/angular.min.js"></script>
+	<script src="lib/angular-ui-router/release/angular-ui-router.min.js"></script>
+	<script src="lib/angular-ui-router.stateHelper/statehelper.min.js"></script>
+	<script src="lib/angular-local-storage/dist/angular-local-storage.js"></script>
+	<script src="lib/angular-dashboard-framework/dist/angular-dashboard-framework.js"></script>
+	<script src="lib/toastr/toastr.min.js"></script>
+    <script src="scripts/main.js"></script>
+	<script src="scripts/app.module.js"></script>
+	
+	<script src="scripts/modules/core/core.module.js"></script>
+	<script src="scripts/modules/core/core.config.js"></script>
+	<script src="scripts/modules/core/core.values.js"></script>
+	<script src="scripts/modules/core/core.constants.js"></script>
+	
+	<script src="scripts/modules/blocks/exception/exception.js"></script>
+	<script src="scripts/modules/blocks/header/header.js"></script>
+	<script src="scripts/modules/blocks/logger/logger.js"></script>
+	<script src="scripts/modules/blocks/router/router.js"></script>
+	
+	<script src="scripts/modules/widgets/widgets.module.js"></script>
+		
+    <script src="scripts/modules/dashboard/dashboard.module.js"></script>
+	<script src="scripts/modules/dashboard/dashboard.controller.js"></script>	
+	<script src="scripts/modules/dashboard/dashboard.route.js"></script>
+	
+	
+	<script src="scripts/modules/widgets/adf/map/widgets.adfMap.js"></script>
+	
+	<!-- /include -->
+	
+    <!-- endbuild -->
+
+</body>
+</html>
