@@ -6,7 +6,7 @@
 (function() {
     'use strict';
 
-    var core = angular.module('app.core',[]);
+    var core = angular.module('app.core');
     /**
      * Configuraciones para notificaciones, logger y exception.
      */
@@ -43,9 +43,9 @@
     /**
      * Configuraciones para storage.
      */
-    core.config(storageConfig);
+   core.config(storageConfig);
     
-    storageConfig.$inject = ['localStorageServiceProvider'];
+   storageConfig.$inject = ['localStorageServiceProvider'];
     
     function storageConfig(localStorageServiceProvider) {
         // Configuración del Local Storage.
@@ -149,9 +149,9 @@
     /**
      * Configuraciones para comunicaciones.
      */
-    core.config(commConfig);
+   core.config(commConfig);
     
-    commConfig.$inject = ['$stateProvider', '$urlRouterProvider', 'stateHelperConfigProvider'];
+   commConfig.$inject = ['$stateProvider', '$urlRouterProvider', 'stateHelperConfigProvider'];
     
     function commConfig($stateProvider, $urlRouterProvider, stateHelperConfigProvider) {
         

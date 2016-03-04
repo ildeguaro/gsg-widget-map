@@ -5,7 +5,7 @@
     'use strict';
 
     angular
-    	.module('app.dashboard',[])
+    	.module('app.dashboard')
     	.controller('DashboardController', DashboardController);
     
     DashboardController.$inject = ['$scope', 'localStorageService'];
@@ -16,7 +16,7 @@
 		vm.model = localStorageService.get(vm.name);
 		if (!vm.model) {
 	    	vm.model = {
-				title : 'GApp Dashboard',
+				title : 'Dashboard',
 				structure : '4-8',
 				rows : [{
 			        columns: [

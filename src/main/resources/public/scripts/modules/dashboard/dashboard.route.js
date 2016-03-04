@@ -4,11 +4,11 @@
 (function() {
     'use strict';
 
-    angular
+  angular
         .module('app.dashboard')
-        .run(appRun);
+       .run(appRun);
 
-    appRun.$inject = ['stateHelper'];
+   appRun.$inject = ['stateHelper'];
 
     function appRun(stateHelper) {
     	stateHelper.configureStates(getStates());
@@ -31,4 +31,5 @@
             }
         ];
     }
+	
 })();

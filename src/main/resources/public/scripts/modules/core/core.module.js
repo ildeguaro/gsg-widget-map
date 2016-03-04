@@ -8,7 +8,7 @@
         /*
          * Módulos Angular.
          */
-        'ngResource', 'ngSanitize', 'ngAnimate', 'ngCookies',
+        'ngResource',
         /*
          * Módulos reusables (Blocks).
          */
@@ -16,7 +16,7 @@
         /*
          * Módulos Angular de terceros.
          */
-        'ui.router', 'ui.bootstrap', 'adf', 'LocalStorageModule'
+        'ui.router','adf', 'LocalStorageModule'
     ]);
     
 })();

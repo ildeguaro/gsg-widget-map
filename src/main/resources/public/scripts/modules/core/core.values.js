@@ -4,10 +4,10 @@
 angular.module('app.core')
 
 .constant('CONFIG', {
-	env: 'prod',
-	version: '0.1.0-SNAPSHOT',
-	debug: false,
-	logDebugEnabled: false,
+	env: 'dev',
+	version: '1.0.0-SNAPSHOT',
+	debug: true,
+	logDebugEnabled: true,
 	appErrorPrefix: '[Error GAPP] ',
 	appTitle: 'GAPP - Services Portal',
 	defaultState: 'task',

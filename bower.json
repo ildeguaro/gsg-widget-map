@@ -15,11 +15,15 @@
 		"angular-ui-router": "~0.2.18",		
 		"angular-local-storage": "~0.2.3",
 		"angular-dashboard-framework": "~0.11.0",
+		"angular-resource": "~1.4.9",
+		"angular-sanitize": "~1.4.9",		
 		"bootstrap": "~3.3.6",
 		"jquery": "~2.2.0",
 		"jquery-ui": "~1.11.4",
-		"toastr": "~2.1.2"
-		
+		"toastr": "~2.1.2",
+		"ngmap": "~1.16.7",
+		"ol3":"~3.4.0",
+		"angular-openlayers-directive":"~1.9.2"		
 	},
 	"devDependencies": {
 		

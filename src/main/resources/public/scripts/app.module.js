@@ -9,12 +9,16 @@
             /*
              * Módulos con contenido global y accesibles por todos los demás módulos.
              */
-    	    'app.core',
-    	    'app.widgets',
+    	   'app.core',
+    	   'app.widgets',
     	    /*
     	     * Módulos de Areas de Funciones (Feature areas).
     	     */
            
+            /*
+             * Módulos Angular.
+             */           
+            
             'app.dashboard'
             
             

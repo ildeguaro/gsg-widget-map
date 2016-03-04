@@ -1,6 +1,21 @@
+<body>
 <div class=text-center>
+  <div class='alert alert-info' ng-if=!config.providerSelect>Please select a Provider in Config</div>
   <div class='alert alert-info' ng-if=!config>Please insert a location in the widget configuration</div>
 </div>
-<openlayers ol-center='{{vm.config.center}}' width='100%' > 
-  <ol-marker ol-marker-properties='{{vm.config.markerdefault}}'>
+<h3 ng-if=config.providerSelect>{{vm.providerSelect.title}}</h3>
+<div id='map'></div>
+
+<ng-map ng-if='config.providerSelect.id==1' zoom='{{vm.providerSelect.zoom}} '
+     center='[{{vm.providerSelect.center.lat}}, {{vm.providerSelect.center.lng}}]'>
+     <marker position='[{{vm.providerSelect.center.lat}}, {{vm.providerSelect.center.lng}}]'  /></marker>
+     <shape name='circle' radius='1000' center='[{{vm.providerSelect.center.lat}}, {{vm.providerSelect.center.lng}}]' 
+     radius='4000'/>
+     <control name='overviewMap' opened='true' />
+</ng-map>
+
+<openlayers ng-if='config.providerSelect.id==2'  ol-center='vm.providerSelect.center' width='100%' > 
+  <ol-marker ol-marker-properties='vm.providerSelect.center'>
 </openlayers>
+
+</body>
